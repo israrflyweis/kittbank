@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
+import '../wallet/card_screen.dart';
 import 'home_screen.dart';  // Ensure this import is correct
 
 class TabScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _TabScreenState extends State<TabScreen> {
       Navigator(
         key: navigatorKeys[1],
         onGenerateRoute: (settings) => MaterialPageRoute(
-          builder: (_) => Center(child: Text("Wallet", style: TextStyle(fontSize: 24))),
+          builder: (_) => CardScreen(),
         ),
       ),
       Navigator(

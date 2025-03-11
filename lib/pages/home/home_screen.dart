@@ -6,12 +6,14 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 import '../../app_routes.dart';
+import '../../components/bottom_sheets.dart';
 import '../../components/common_button.dart';
 import '../../components/custom_card.dart';
 import '../../components/custom_container.dart';
 import '../../components/custom_tile.dart';
 import '../../components/primary_button.dart';
 
+import '../../components/withdraw_bottom_sheet.dart';
 import '../../utils/utils.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -276,20 +278,47 @@ class HomeScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Expanded(
-                                    child: CommonButton(
-                                      title: "Add Money",
-                                      backgroundColor: const Color(0xffD2B48C),
-                                      borderRadius: 20.r,
-                                      elevation: 3,
+                                    child: InkWell(
+                                      onTap: () {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.vertical(
+                                                top: Radius.circular(15)),
+                                          ),
+                                          builder: (context) => BottomSheets(),
+                                        );
+                                      },
+                                      child: CommonButton(
+                                        title: "Add Money",
+                                        backgroundColor:
+                                            const Color(0xffD2B48C),
+                                        borderRadius: 20.r,
+                                        elevation: 3,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(width: 10),
                                   Expanded(
-                                    child: CommonButton(
-                                      title: "Withdraw",
-                                      backgroundColor: const Color(0xffD2B48C),
-                                      borderRadius: 20.r,
-                                      elevation: 3,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.vertical(
+                                                top: Radius.circular(15)),
+                                          ),
+                                          builder: (context) =>
+                                              WithdrawBottomSheet(),
+                                        );
+                                      },
+                                      child: CommonButton(
+                                        title: "Withdraw",
+                                        backgroundColor:
+                                            const Color(0xffD2B48C),
+                                        borderRadius: 20.r,
+                                        elevation: 3,
+                                      ),
                                     ),
                                   ),
                                 ],
