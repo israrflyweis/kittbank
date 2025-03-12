@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kittbank/app_routes.dart';
 import 'package:kittbank/components/custom_container.dart';
 import 'package:kittbank/components/custom_tile.dart';
 
@@ -24,6 +26,47 @@ class CardScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
             child: Column(
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Card",
+                      style: GoogleFonts.openSans(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 14),
+                    ),
+                    Stack(children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/layer.png"),
+                      ),
+                      Positioned(
+                        right: 0,
+                        top: 0,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 13.h,
+                          width: 25.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6.r),
+                            color: Colors.red,
+                          ),
+                          child: Text(
+                            "9 +",
+                            style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Image.asset("assets/images/card_img.png"),
                 SizedBox(
                   height: 20,
@@ -32,35 +75,45 @@ class CardScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: List.generate(selectionCard.length, (index) {
                     final card = selectionCard[index];
-                    return Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              spreadRadius: 4,
-                              blurRadius: 8,
-                              offset: Offset(2, 5)),
-                        ],
-                        gradient: LinearGradient(
-                          tileMode: TileMode.clamp,
-                          stops: [00.00, 0.00, 18.10],
-                          colors: [
-                            Color(0xff24190E),
-                            Color(0xff815B00),
-                            Color(0xff56441E),
+                    return GestureDetector(
+                      onTap: () {
+                        switch (card) {
+                          case "Add Card":
+                            Get.offNamed(AppRoutes.addCardScreen);
+                          default:
+                            break;
+                        }
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 4,
+                                blurRadius: 8,
+                                offset: Offset(2, 5)),
                           ],
+                          gradient: LinearGradient(
+                            tileMode: TileMode.clamp,
+                            stops: [00.00, 0.00, 18.10],
+                            colors: [
+                              Color(0xff24190E),
+                              Color(0xff815B00),
+                              Color(0xff56441E),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Text(
-                        card,
-                        style: GoogleFonts.openSans(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
+                        child: Text(
+                          card,
+                          style: GoogleFonts.openSans(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     );
@@ -109,6 +162,9 @@ class CardScreen extends StatelessWidget {
                           ),
                         ),
                         ListTile(
+                            onTap: () {
+                              Get.offNamed(AppRoutes.insightsActivity);
+                            },
                             contentPadding: EdgeInsets.zero,
                             leading: Container(
                               height: 40.h,
@@ -233,6 +289,9 @@ class CardScreen extends StatelessWidget {
                               size: 14,
                             )),
                         ListTile(
+                          onTap: (){
+                            Get.toNamed(AppRoutes.findAtmScreen);
+                          },
                             contentPadding: EdgeInsets.zero,
                             leading: Container(
                               height: 40.h,
@@ -354,6 +413,7 @@ class CardScreen extends StatelessWidget {
                               size: 14,
                             )),
                         ListTile(
+                          onTap: ()=> Get.toNamed(AppRoutes.changePin),
                             contentPadding: EdgeInsets.zero,
                             leading: Container(
                               height: 40.h,

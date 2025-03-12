@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../wallet/card_screen.dart';
@@ -25,7 +26,9 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: widget.initialIndex);
+    int indexFromArgs = Get.arguments?["initialIndex"] ?? 0;
+    _controller = PersistentTabController(initialIndex: indexFromArgs);
+
   }
 
   // Define screens with custom Navigator for each tab

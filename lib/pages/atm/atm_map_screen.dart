@@ -24,7 +24,7 @@ class _AtmMapScreenState extends State<AtmMapScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Row(
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () => Get.back(),
                     child: Image.asset(
                       "assets/images/newback.png",

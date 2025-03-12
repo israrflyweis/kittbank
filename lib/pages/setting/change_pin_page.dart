@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
 
+import '../../app_routes.dart';
+import '../../components/checkyour_mail_popup.dart';
+
 class ChangePinCode extends StatefulWidget {
   const ChangePinCode({super.key});
 
@@ -33,7 +36,10 @@ class _ChangePinCodeState extends State<ChangePinCode> {
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Row(
                     children: [
-                      Image.asset("assets/images/backbtn.png", height: 40.h),
+                      InkWell(
+                          onTap: () => Get.back(),
+                          child: Image.asset("assets/images/backbtn.png",
+                              height: 40.h)),
                       SizedBox(
                         width: 40.w,
                       ),
@@ -193,7 +199,19 @@ class _ChangePinCodeState extends State<ChangePinCode> {
                 PrimaryButton(
                   text: "Next",
                   onTap: () {
-                    // Get.offNamed(AppRoutes.otp);
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          return CheckYourEmail(
+                            onTap: (){
+                              Get.toNamed(AppRoutes.otpVerification);
+                            },
+                            title: "Check your email",
+                            subtitle: "We have sent a instructions to recover your password to your email",
+                            icon: Icons.chat,
+                            btnText: "Done",
+                          );
+                        });
                   },
                 ),
               ],

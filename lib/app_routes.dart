@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kittbank/pages/home/my_available_balance.dart';
+import 'package:kittbank/pages/wallet/insights_activity.dart';
+import 'package:kittbank/pages/wallet/otp_verifyi.dart';
 
-import 'pages/add_card_screen.dart';
+import 'pages/wallet/add_card_screen.dart';
 import 'pages/atm/atm_map_screen.dart';
 import 'pages/atm/find_atm_screen.dart';
 import 'pages/auth/forget_screen.dart';
@@ -31,6 +33,8 @@ class AppRoutes {
   static const String contactUsScreen = "/ContactUsScreen";
   static const String addCardScreen = "/AddCardScreen";
   static const String availableBalanceScreen = "/AvailableBalanceScreen";
+  static const String insightsActivity = "/InsightsActivity";
+  static const String otpVerification = "/OtpVerification";
 
   static Map<String, WidgetBuilder> routes = {
     intro: (context) => IntroScreen(),
@@ -47,5 +51,7 @@ class AppRoutes {
     contactUsScreen: (context) => ContactUsScreen(),
     addCardScreen: (context) => AddCardScreen(),
     availableBalanceScreen: (context) => AvailableBalanceScreen(),
+    insightsActivity : (context) => InsightsActivity(),
+    otpVerification : (context) =>OtpVerification(),
   };
 }

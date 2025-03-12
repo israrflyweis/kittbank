@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
 
+import '../../app_routes.dart';
+
 class FindAtmScreen extends StatefulWidget {
   const FindAtmScreen({super.key});
 
@@ -28,7 +30,11 @@ class _FindAtmScreenState extends State<FindAtmScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Row(
                     children: [
-                      Image.asset("assets/images/backbtn.png", height: 40.h),
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                          child: Image.asset("assets/images/backbtn.png", height: 40.h)),
                       SizedBox(
                         width: 80.w,
                       ),
@@ -115,7 +121,7 @@ class _FindAtmScreenState extends State<FindAtmScreen> {
                 PrimaryButton(
                   text: "Next",
                   onTap: () {
-                    // Get.offNamed(AppRoutes.otp);
+                    Get.toNamed(AppRoutes.atmMapScreen);
                   },
                 ),
                 SizedBox(

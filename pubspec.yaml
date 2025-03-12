@@ -40,6 +40,7 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   google_fonts: ^6.2.1
   syncfusion_flutter_charts: ^28.2.9
+  fl_chart: ^0.70.2
 
 dev_dependencies:
   flutter_test:
