@@ -448,6 +448,9 @@ class CardScreen extends StatelessWidget {
                               size: 14,
                             )),
                         ListTile(
+                          onTap: () {
+                            Get.toNamed(AppRoutes.supportScreen);
+                          },
                             contentPadding: EdgeInsets.zero,
                             leading: Container(
                               height: 40.h,

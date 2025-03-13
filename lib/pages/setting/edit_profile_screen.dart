@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
+
+import '../../app_routes.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -37,18 +40,132 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       SizedBox(
                         width: 40.w,
                       ),
-                      Text("Edit Profile",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold))
+                      Text(
+                        "Edit Profile",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 25.h,
                 ),
-                Image.asset("assets/images/profile.png", height: 80.h),
+                Stack(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          enableDrag: true, // Allow user to swipe down to close
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                          ),
+                          backgroundColor: Colors.transparent,
+                          builder: (context) {
+                            return Container(
+                              height: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(12),
+                                ),
+                                gradient: gradient,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            "Upload From",
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.openSans(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w800,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () => Navigator.pop(context),
+                                          child: Icon(
+                                            Icons.close,
+                                            color: Colors.white,
+                                            size: 25,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 25),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            // TODO: Open Camera Function
+                                          },
+                                          child: Column(
+                                            children: [
+                                              Icon(Icons.linked_camera, color: Colors.white, size: 40),
+                                              SizedBox(height: 5),
+                                              Text(
+                                                "Camera",
+                                                style: GoogleFonts.openSans(
+                                                  color: Color(0xffFAD332),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            // TODO: Open File Picker
+                                          },
+                                          child: Column(
+                                            children: [
+                                              Icon(Icons.file_open_rounded, color: Colors.white, size: 40),
+                                              SizedBox(height: 5),
+                                              Text(
+                                                "Files",
+                                                style: GoogleFonts.openSans(
+                                                  color: Color(0xffFAD332),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage("assets/images/layer.png"),
+                      ),
+                    ),
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Image.asset("assets/images/capture.png"),
+                    ),
+                  ],
+                ),
+
                 SizedBox(
                   height: 25.h,
                 ),
@@ -215,7 +332,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 PrimaryButton(
                   text: "Update Information",
                   onTap: () {
-                    // Get.offNamed(AppRoutes.otp);
+                     Get.offNamed(AppRoutes.tabScreen,arguments: {"initialIndex" : 4});
                   },
                 ),
               ],
