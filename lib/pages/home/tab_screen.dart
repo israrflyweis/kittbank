@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../profile_tab/my_account.dart';
+import '../search_tab/search_screen.dart';
 import '../wallet/card_screen.dart';
 import 'home_screen.dart';  // Ensure this import is correct
 
@@ -56,7 +57,7 @@ class _TabScreenState extends State<TabScreen> {
       Navigator(
         key: navigatorKeys[3],
         onGenerateRoute: (settings) => MaterialPageRoute(
-          builder: (_) => Center(child: Text("Discover", style: TextStyle(fontSize: 24))),
+          builder: (_) => SearchScreen(),
         ),
       ),
       Navigator(

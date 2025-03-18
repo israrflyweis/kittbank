@@ -5,7 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kittbank/app_routes.dart';
 import 'package:kittbank/components/custom_container.dart';
 import 'package:kittbank/components/custom_tile.dart';
+import 'package:kittbank/pages/auth/login_screen.dart';
 
+import '../../components/checkyour_mail_popup.dart';
 import '../../utils/utils.dart';
 
 class MyAccount extends StatelessWidget {
@@ -19,6 +21,18 @@ class MyAccount extends StatelessWidget {
     {"title": "Themes", "icon": Icons.color_lens_sharp},
     {"title": "Documents", "icon": Icons.insert_drive_file},
     {"title": "Support", "icon": Icons.support_agent_sharp},
+    {
+      "title": "Rate On Store",
+      "icon": Icons.star_border,
+    },
+    {
+      "title": "Address",
+      "icon": Icons.directions_outlined,
+    },
+    {
+      "title": "Language",
+      "icon": Icons.translate,
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -45,10 +59,10 @@ class MyAccount extends StatelessWidget {
                     )),
                     Stack(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.notifications_none,
                           color: Colors.white,
-                          size: 40.h,
+                          size: 40,
                         ),
                         Positioned(
                           right: 0,
@@ -76,7 +90,7 @@ class MyAccount extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 20,
                 ),
                 ListTile(
                   horizontalTitleGap: 0,
@@ -99,7 +113,7 @@ class MyAccount extends StatelessWidget {
                                     Icon(
                                       Icons.qr_code_2,
                                       color: Colors.black,
-                                      size: 200.h,
+                                      size: 200,
                                     ),
                                   ],
                                 ),
@@ -108,7 +122,7 @@ class MyAccount extends StatelessWidget {
                           );
                         },
                         child: CircleAvatar(
-                          radius: 40.h,
+                          radius: 40,
                           backgroundImage:
                               AssetImage("assets/images/layer.png"),
                         ),
@@ -143,18 +157,18 @@ class MyAccount extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 15,
                 ),
                 DashedDivider(),
                 SizedBox(
-                  height: 10.h,
+                  height: 10,
                 ),
                 Text(
                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
                   style: GoogleFonts.openSans(
                       fontWeight: FontWeight.w600,
                       color: Colors.white54,
-                      fontSize: 12.sp),
+                      fontSize: 12),
                 ),
                 SizedBox(
                   height: 20,
@@ -170,7 +184,7 @@ class MyAccount extends StatelessWidget {
                           style: GoogleFonts.openSans(
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
-                            fontSize: 14.sp,
+                            fontSize: 14,
                           ),
                         ),
                       ),
@@ -191,7 +205,7 @@ class MyAccount extends StatelessWidget {
                                 style: GoogleFonts.openSans(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white,
-                                  fontSize: 12.sp,
+                                  fontSize: 12,
                                 ),
                               ),
                               leading: Container(
@@ -212,7 +226,7 @@ class MyAccount extends StatelessWidget {
                               trailing: Icon(
                                 Icons.arrow_forward_ios,
                                 color: Colors.white,
-                                size: 20.h,
+                                size: 20,
                               ),
                               onTap: () {
                                 // Handle tap action here
@@ -232,6 +246,22 @@ class MyAccount extends StatelessWidget {
                                     Get.toNamed(AppRoutes.favorites);
                                     break;
 
+                                  case "Notifications":
+                                    Get.toNamed(AppRoutes.notificationsScreen);
+                                    break;
+                                  case "Documents":
+                                    Get.toNamed(AppRoutes.documentsScreen);
+                                    break;
+                                  case "Support":
+                                    Get.toNamed(AppRoutes.supportScreen);
+                                    break;
+                                  case "Address":
+                                    Get.toNamed(AppRoutes.addressScreen);
+                                    break;
+                                  case "Language":
+                                    Get.toNamed(
+                                        AppRoutes.languageSelectionScreen);
+                                    break;
                                 }
                               },
                             );
@@ -252,7 +282,7 @@ class MyAccount extends StatelessWidget {
                     style: GoogleFonts.openSans(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
-                      fontSize: 12.sp,
+                      fontSize: 12,
                     ),
                   ),
                   leading: Container(
@@ -273,10 +303,112 @@ class MyAccount extends StatelessWidget {
                   trailing: Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.white,
-                    size: 20.h,
+                    size: 20,
                   ),
                   onTap: () {
-                    // Handle tap action here
+                    Get.bottomSheet(
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Container(
+                            color: Colors.black.withOpacity(0.8),
+                            height: 250,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 35),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      "Are You Sure Want \nTo Logout ?",
+                                      style: GoogleFonts.openSans(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    const Spacer(),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              // Navigate to login screen and remove all previous screens
+                                              Get.offAllNamed('/login');
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              minimumSize: Size(Get.width, 45),
+                                              backgroundColor: Colors.white38,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              "Yes",
+                                              style: GoogleFonts.roboto(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 14),
+                                        Expanded(
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              Get.back(); // Close the bottom sheet
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              minimumSize: Size(Get.width, 45),
+                                              backgroundColor: Colors.white38,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              "No",
+                                              style: GoogleFonts.roboto(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 15),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: -25,
+                            left: 0,
+                            right: 0,
+                            child: CircleAvatar(
+                              foregroundColor: Colors.brown,
+                              radius: 30,
+                              backgroundColor: const Color(0xffFAD332),
+                              child: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      isDismissible: true, // Allows the user to dismiss the bottom sheet
+                      enableDrag: false, // Prevents accidental swiping away
+                    );
                   },
                 ))
               ],

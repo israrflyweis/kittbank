@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:kittbank/pages/home/my_available_balance.dart';
+import 'package:kittbank/pages/profile_tab/account_statement.dart';
+import 'package:kittbank/pages/profile_tab/address_screen.dart';
 import 'package:kittbank/pages/profile_tab/contacts.dart';
+import 'package:kittbank/pages/profile_tab/documents.dart';
 import 'package:kittbank/pages/profile_tab/favorites.dart';
 import 'package:kittbank/pages/profile_tab/linked_banks.dart';
+import 'package:kittbank/pages/profile_tab/notifications.dart';
+import 'package:kittbank/pages/profile_tab/saving_screen.dart';
 import 'package:kittbank/pages/profile_tab/security_privacy.dart';
+import 'package:kittbank/pages/profile_tab/tex_returns.dart';
 import 'package:kittbank/pages/wallet/insights_activity.dart';
 import 'package:kittbank/pages/wallet/otp_verifyi.dart';
 import 'package:kittbank/pages/wallet/support_screen.dart';
 
+import 'controller/country_selection.dart';
 import 'pages/wallet/add_card_screen.dart';
 import 'pages/atm/atm_map_screen.dart';
 import 'pages/atm/find_atm_screen.dart';
@@ -45,6 +52,13 @@ class AppRoutes {
   static const String securityPrivacy = "/SecurityPrivacy";
   static const String favorites = "/Favorites";
   static const String contacts = "/Contacts";
+  static const String notificationsScreen = "/NotificationsScreen";
+  static const String documentsScreen = "/DocumentsScreen";
+  static const String accountStatement = "/AccountStatement";
+  static const String savingScreen = "/SavingScreen";
+  static const texReturnsScreen = "/TexReturnsScreen";
+  static const addressScreen = "/AddressScreen";
+  static const languageSelectionScreen = "/LanguageSelectionScreen";
 
   static Map<String, WidgetBuilder> routes = {
     intro: (context) => IntroScreen(),
@@ -68,5 +82,12 @@ class AppRoutes {
     securityPrivacy: (context) => SecurityPrivacy(),
     favorites: (context) => Favorites(),
     contacts: (context) => Contacts(),
+    notificationsScreen: (context) => NotificationsScreen(),
+    documentsScreen: (context) => DocumentsScreen(),
+    accountStatement: (context) => AccountStatement(),
+    savingScreen: (context) => SavingScreen(),
+    texReturnsScreen: (context) => TexReturnsScreen(),
+    addressScreen: (context) => AddressScreen(),
+    languageSelectionScreen: (context) => LanguageSelectionScreen()
   };
 }
