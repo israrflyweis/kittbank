@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kittbank/pages/doller_tab/pay_request_screen.dart';
+import 'package:kittbank/pages/doller_tab/request_pay_screen.dart';
+import 'package:kittbank/pages/doller_tab/zelle_screen.dart';
+import 'package:kittbank/pages/doller_tab/zelle_tab_screen.dart';
 import 'package:kittbank/pages/home/my_available_balance.dart';
 import 'package:kittbank/pages/profile_tab/account_statement.dart';
 import 'package:kittbank/pages/profile_tab/address_screen.dart';
@@ -59,6 +63,10 @@ class AppRoutes {
   static const texReturnsScreen = "/TexReturnsScreen";
   static const addressScreen = "/AddressScreen";
   static const languageSelectionScreen = "/LanguageSelectionScreen";
+  static const requestPayScreen = "/RequestPayScreen";
+  static const payRequestScreen = "/PayRequestScreen";
+  static const zelleScreen = "/ZelleScreen";
+  static const zelleTabScreen = "/ZelleTabScreen";
 
   static Map<String, WidgetBuilder> routes = {
     intro: (context) => IntroScreen(),
@@ -88,6 +96,10 @@ class AppRoutes {
     savingScreen: (context) => SavingScreen(),
     texReturnsScreen: (context) => TexReturnsScreen(),
     addressScreen: (context) => AddressScreen(),
-    languageSelectionScreen: (context) => LanguageSelectionScreen()
+    languageSelectionScreen: (context) => LanguageSelectionScreen(),
+    requestPayScreen: (context) => RequestPayScreen(),
+    payRequestScreen: (context) => PayRequestScreen(),
+    zelleScreen: (context) =>ZelleScreen(),
+    zelleTabScreen: (context) => ZelleTabScreen(),
   };
 }

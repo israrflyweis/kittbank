@@ -84,13 +84,13 @@ class SearchScreen extends StatelessWidget {
                   elevation: 10, // Soft shadow effect
                   shadowColor: Colors.black.withOpacity(0.4),
                   color: Colors
-                      .transparent, // Keeps it transparent for the blur effect
+                      .transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(10), // Smooth rounded corners
+                        BorderRadius.circular(10),
                     side: BorderSide(
                         color: Colors.white.withOpacity(0.5),
-                        width: 1.2), // Semi-transparent white border
+                        width: 1.2),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
@@ -131,7 +131,7 @@ class SearchScreen extends StatelessWidget {
                     child: Obx(() {
                       int visibleCount = showMore.value
                           ? images.length
-                          : 7; // Show 7 images initially
+                          : 7;
 
                       return Wrap(
                         spacing: 20,
@@ -145,7 +145,7 @@ class SearchScreen extends StatelessWidget {
                                     backgroundImage: AssetImage(image),
                                   )),
 
-                          // 🔽 Expand/Collapse Button
+
                           GestureDetector(
                             onTap: () => showMore.toggle(),
                             child: CircleAvatar(

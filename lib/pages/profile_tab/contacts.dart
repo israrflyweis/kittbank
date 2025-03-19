@@ -125,69 +125,67 @@ class Contacts extends StatelessWidget {
                 CustomContainer(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Expanded(
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.7,
-                        child: ListView.builder(
-                          padding: EdgeInsets.zero,
-                          physics: AlwaysScrollableScrollPhysics(),
-                          itemCount: searchList.length,
-                          itemBuilder: (context, index) {
-                            final user = searchList[index];
-                            final String currentLetter =
-                                user["title"][0].toUpperCase();
-                            final String? previousLetter = index == 0
-                                ? null
-                                : searchList[index - 1]["title"][0]
-                                    .toUpperCase();
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.7,
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
+                        physics: AlwaysScrollableScrollPhysics(),
+                        itemCount: searchList.length,
+                        itemBuilder: (context, index) {
+                          final user = searchList[index];
+                          final String currentLetter =
+                              user["title"][0].toUpperCase();
+                          final String? previousLetter = index == 0
+                              ? null
+                              : searchList[index - 1]["title"][0]
+                                  .toUpperCase();
 
-                            return Column(
-                              children: [
-                                if (currentLetter != previousLetter)
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 8.h),
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        currentLetter,
-                                        style: GoogleFonts.roboto(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 16.sp,
-                                        ),
+                          return Column(
+                            children: [
+                              if (currentLetter != previousLetter)
+                                Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(vertical: 8.h),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      currentLetter,
+                                      style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16.sp,
                                       ),
                                     ),
                                   ),
-                                ListTile(
-                                  contentPadding: EdgeInsets.zero,
-                                  leading: CircleAvatar(
-                                    radius: isLandscape ? 50 : 23,
-                                    backgroundImage: AssetImage(user["image"]),
-                                  ),
-                                  title: Text(
-                                    user["title"],
-                                    style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 14.sp),
-                                  ),
-                                  subtitle: Text(
-                                    user["subtitle"],
-                                    style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12.sp),
-                                  ),
                                 ),
-                                Divider(
-                                  color: Colors.white,
+                              ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                leading: CircleAvatar(
+                                  radius: isLandscape ? 50 : 23,
+                                  backgroundImage: AssetImage(user["image"]),
                                 ),
+                                title: Text(
+                                  user["title"],
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14.sp),
+                                ),
+                                subtitle: Text(
+                                  user["subtitle"],
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.sp),
+                                ),
+                              ),
+                              Divider(
+                                color: Colors.white,
+                              ),
 
-                              ],
-                            );
-                          },
-                        ),
+                            ],
+                          );
+                        },
                       ),
                     ),
                   ),

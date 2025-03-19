@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
+import '../doller_tab/pay_request_screen.dart';
 import '../profile_tab/my_account.dart';
 import '../search_tab/search_screen.dart';
 import '../wallet/card_screen.dart';
@@ -51,7 +52,7 @@ class _TabScreenState extends State<TabScreen> {
       Navigator(
         key: navigatorKeys[2],
         onGenerateRoute: (settings) => MaterialPageRoute(
-          builder: (_) => Center(child: Text("Profile", style: TextStyle(fontSize: 24))),
+          builder: (_) => PayRequestScreen(),
         ),
       ),
       Navigator(
