@@ -4,6 +4,12 @@ import 'package:get/get.dart';
 import 'package:kittbank/app_routes.dart';
 
 void main() {
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => MyApp(), // Wrap your app
+  //   ),
+  // );
   runApp(const MyApp());
 }
 
@@ -20,7 +26,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // home: const IntroScreen(),
-        initialRoute: AppRoutes.tabScreen,
+        initialRoute: AppRoutes.splashFirstScreen,
         // initialRoute: AppRoutes.tabScreen,
         routes: AppRoutes.routes,
       ),

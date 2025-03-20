@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
 
+import '../../app_routes.dart';
+
 class ContactUsScreen extends StatefulWidget {
   const ContactUsScreen({super.key});
 
@@ -72,7 +74,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 PrimaryButton(
                   text: "Chat with us",
                   onTap: () {
-                    // Get.offNamed(AppRoutes.otp);
+                     Get.offNamed(AppRoutes.massageScreen);
                   },
                 ),
               ],

@@ -243,7 +243,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 PrimaryButton(
                   text: "Register",
-                  onTap: () {},
+                  onTap: () {
+                    Get.offNamed(AppRoutes.login);
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
@@ -355,6 +357,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 20.h,
                 ),
               ],
             ),

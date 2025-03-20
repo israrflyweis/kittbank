@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kittbank/pages/chat_page/chat_screen.dart';
 import 'package:kittbank/pages/doller_tab/pay_request_screen.dart';
+import 'package:kittbank/pages/doller_tab/qr_code_scanner.dart';
 import 'package:kittbank/pages/doller_tab/request_pay_screen.dart';
+import 'package:kittbank/pages/doller_tab/scanner_page.dart';
 import 'package:kittbank/pages/doller_tab/zelle_screen.dart';
 import 'package:kittbank/pages/doller_tab/zelle_tab_screen.dart';
 import 'package:kittbank/pages/home/my_available_balance.dart';
+import 'package:kittbank/pages/home/splash_screen.dart';
+import 'package:kittbank/pages/home/splash_screen2.dart';
+import 'package:kittbank/pages/home/splash_screen_home.dart';
+import 'package:kittbank/pages/home/splash_third_screen.dart';
 import 'package:kittbank/pages/profile_tab/account_statement.dart';
 import 'package:kittbank/pages/profile_tab/address_screen.dart';
 import 'package:kittbank/pages/profile_tab/contacts.dart';
@@ -34,7 +41,10 @@ import 'pages/setting/contact_us_screen.dart';
 import 'pages/setting/edit_profile_screen.dart';
 
 class AppRoutes {
-  static const String splash = '/';
+  static const String splashFirstScreen = '/SplashFirstScreen';
+  static const String splashSecondScreen = '/SplashSecondScreen';
+  static const String splashThirdScreen = '/splashThirdScreen';
+  static const String splashScreenHome = "/SplashScreenHome";
   static const String intro = "/intro";
   static const String login = "/login";
   static const String register = "/register";
@@ -67,8 +77,15 @@ class AppRoutes {
   static const payRequestScreen = "/PayRequestScreen";
   static const zelleScreen = "/ZelleScreen";
   static const zelleTabScreen = "/ZelleTabScreen";
+  static const qrCodeGenrator = "/QrCodeGenrator";
+ // static const qrCodeScanner = "/QrCodeScanner";
+  static const massageScreen = "/MassageScreen";
 
   static Map<String, WidgetBuilder> routes = {
+    splashFirstScreen : (context) => SplashFirstScreen(),
+    splashSecondScreen : (context) => SplashSecondScreen(),
+    splashThirdScreen : (context) => SplashThirdScreen(),
+    splashScreenHome : (context) => SplashScreenHome(),
     intro: (context) => IntroScreen(),
     login: (context) => LoginScreen(),
     register: (context) => RegisterScreen(),
@@ -101,5 +118,8 @@ class AppRoutes {
     payRequestScreen: (context) => PayRequestScreen(),
     zelleScreen: (context) =>ZelleScreen(),
     zelleTabScreen: (context) => ZelleTabScreen(),
+    qrCodeGenrator : (context) =>QrCodeGenrator(),
+    //qrCodeScanner : (context) => QrCodeScanner(),
+    massageScreen: (context) =>MassageScreen(),
   };
 }

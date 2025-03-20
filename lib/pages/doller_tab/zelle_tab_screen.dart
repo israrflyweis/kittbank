@@ -189,8 +189,8 @@ class _ZelleTabScreenState extends State<ZelleTabScreen> {
                             ),
                           );
                           Future.delayed(Duration(seconds: 3), () {
-                            Get.offNamed(AppRoutes.payRequestScreen);
-                          });
+                            Get.offNamed(AppRoutes.tabScreen,);
+                          },);
                         },
                         child: Text(
                           "ZELLE",

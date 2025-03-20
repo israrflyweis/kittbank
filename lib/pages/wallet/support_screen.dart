@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kittbank/app_routes.dart';
 import 'package:kittbank/components/custom_container.dart';
 import 'package:kittbank/components/primary_button.dart';
 
@@ -124,7 +125,9 @@ class SupportScreen extends StatelessWidget {
                     width:MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height*0.07,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.massageScreen);
+                      },
                       style: ButtonStyle(
                         backgroundColor:
                             WidgetStateProperty.all<Color>(Color(0xffFAD332)),
@@ -152,7 +155,9 @@ class SupportScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height*0.07,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.contactUsScreen);
+                      },
                       style: ButtonStyle(
                         backgroundColor:
                             WidgetStateProperty.all<Color>(Color(0xffFAD332)),

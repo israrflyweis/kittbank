@@ -127,7 +127,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 10.h,
                 ),
                 PrimaryButton(
                   text: "Next",
@@ -140,7 +140,8 @@ class _IntroScreenState extends State<IntroScreen> {
                       Navigator.pushNamed(context, AppRoutes.login);
                     }
                   },
-                )
+                ),
+
               ],
             ),
           ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
 
 import '../../app_routes.dart';
+import '../../components/checkyour_mail_popup.dart';
 
 class ForgetScreen extends StatefulWidget {
   const ForgetScreen({super.key});
@@ -126,7 +128,104 @@ class _ForgetScreenState extends State<ForgetScreen> {
                 PrimaryButton(
                   text: "Next",
                   onTap: () {
-                    Get.offNamed(AppRoutes.otp);
+                    showModalBottomSheet(
+                      //backgroundColor: Colors.black.withOpacity(0.8),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(10),),
+                      ),
+                        context: context, builder: (context){
+                      return BottomSheet(
+                         backgroundColor:  Colors.black.withOpacity(0.2),
+                        enableDrag: false,
+                        onClosing: () {},
+                        builder: (context) {
+                          return Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                color: Colors.black.withOpacity(0.8),
+                                height: 250,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 35),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "Check your email",
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "We have sent a instructions to recover your password to your email",
+
+                                          textAlign: TextAlign.center,
+
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.white54,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            Get.back();
+                                            Get.toNamed(AppRoutes.otpVerification);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                              minimumSize:
+                                              Size(MediaQuery.of(context).size.width, 45),
+                                              backgroundColor: Colors.white38,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(10),
+                                              )),
+                                          child: Text(
+                                            "Done",
+                                            style: GoogleFonts.roboto(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                top: -25,
+                                left: 0,
+                                right: 0,
+                                child: CircleAvatar(
+                                  foregroundColor: Colors.brown,
+                                  radius: 30,
+                                  backgroundColor: Color(0xffFAD332),
+                                  child: Icon(
+                                    Icons.chat,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    });
                   },
                 ),
                 SizedBox(

@@ -5,6 +5,7 @@ import 'package:kittbank/components/primary_button.dart';
 import 'package:kittbank/utils/utils.dart';
 
 import '../../app_routes.dart';
+import '../../components/checkyour_mail_popup.dart';
 
 class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({super.key});
@@ -183,7 +184,20 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 PrimaryButton(
                   text: "Reset Password",
                   onTap: () {
-                    // Get.offNamed(AppRoutes.otp);
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return CheckYourEmail(
+                          onTap: () {
+                            Get.toNamed(AppRoutes.login,
+                                );
+                          },
+                          title: "Reset Successfully ",
+                          subtitle: "Your cash pin reset successfully",
+                          icon: Icons.check_circle,
+                          btnText: "Done",
+                        );
+                      });
                   },
                 ),
                 SizedBox(

@@ -283,22 +283,10 @@ class _OtpVerificationState extends State<OtpVerification> {
                   height: 80.h,
                 ),
                 PrimaryButton(
-                  text: "Save",
+                  text: "Next",
                   onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return CheckYourEmail(
-                            onTap: () {
-                              Get.toNamed(AppRoutes.tabScreen,
-                                  arguments: {"initialIndex": 1});
-                            },
-                            title: "Reset Successfully ",
-                            subtitle: "Your cash pin reset successfully",
-                            icon: Icons.check_circle,
-                            btnText: "Done",
-                          );
-                        });
+                    Get.toNamed(AppRoutes.newPassword);
+
                   },
                 ),
               ],

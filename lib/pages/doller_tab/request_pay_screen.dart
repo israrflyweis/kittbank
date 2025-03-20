@@ -186,7 +186,7 @@ class _RequestPayScreenState extends State<RequestPayScreen> {
                             ),
                           );
                           Future.delayed(Duration(seconds: 2), () {
-                            Get.offNamed(AppRoutes.payRequestScreen);
+                            Get.offNamed(AppRoutes.tabScreen);
                           });
                         },
                         child: Text(

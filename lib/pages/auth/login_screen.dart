@@ -187,7 +187,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 PrimaryButton(
                   text: "Log In",
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.tabScreen,
+                    );
+                  },
                 ),
                 SizedBox(
                   height: 40.h,
